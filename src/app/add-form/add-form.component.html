@@ -1,0 +1,36 @@
+<form [formGroup]="form" (ngSubmit)="addProduct()"> 
+<div class ="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Add</h3>
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+            <label for= "products">Name : </label>
+            <select formControlName="products" id="products">
+    <option *ngFor="let name of products; let i = index" [value]="products[i].id">
+      {{products[i].name}}
+    </option>
+  </select>
+
+             <label for= "quantity">Quantity : </label>
+            
+
+             <select formControlName="quantity" id="quantity">
+    <option *ngFor="let quant of quantity; let i = index" [value]="quantity[i].id">
+      {{quantity[i].name}}
+    </option>
+  </select>
+            
+             <label for= "price">Price : </label>
+             <!--<input id="price" type="text" name="price" [(ngModel)]="price" class="form-control">-->
+             <input id="price" type="text" name="price" formControlName="price" class="form-control">
+
+        </div>
+    <div class="panel-footer">
+     <button type="submit" class="btn btn-primary">Add </button>
+     <button type="submit" class="">Cancel </button>
+   </div>
+        
+    </div>
+</div>
+</form>
